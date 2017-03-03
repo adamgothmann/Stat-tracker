@@ -15,6 +15,12 @@ myApp.controller('mainController', ['$scope', '$http', function($scope, $http){
 
   $http({
     method: 'GET',
-    
-  })
+    url: 'https://www.mysportsfeeds.com/api/feed/pull/nhl/current/cumulative_player_stats.json?playerstats=Pts',
+    headers: {
+      "Authorization": "Basic" + btoa(username + ":" + password)
+    }
+  }).then(function(response){
+    alert('it worked');
+    console.log(response);
+  });
 }]);
